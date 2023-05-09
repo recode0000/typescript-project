@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Data from "./data.json"
+
+// JSONの型推論はtypeofで行う
+type USERS = typeof Data;
 
 let userName = "hi";
 let dummyNum = 1122
