@@ -105,7 +105,44 @@ const PC3: PC = {
   OSType: OS.Linux
 }
 
+// 方の互換性
+// できる
+const comp1 = "test";
+let comp2: string = comp1;
 
+// できない
+let comp3: string = "test"
+const comp4: "test" = comp3;
+
+let funcComp1 = (x: number) => {};
+let funcComp2 = (x: string) => {};
+
+//ジェネリックス
+interface GEN<T>{
+  item: T;
+}
+
+const gen0: GEN<string> = { item: "hello" };
+const gen1: GEN = {item: "hello"};
+const gen2: GEN<number> = {item: 10};
+
+interface GEN1<T=string>{
+  item: T;
+}
+
+const gen3: GEN1 = {item: "Heloo"};
+
+interface GEN2<T extends string | number>{
+  item: T;
+}
+
+const gen4: GEN2<string> = { item: "hello"};
+const gen5: GEN2<number> = { item: 444 };
+const gen6: GEN2<number> = { item: true };
+
+function funcGen<T>(props: T) {
+  return { item: props};
+}
 
 
 function App() {
